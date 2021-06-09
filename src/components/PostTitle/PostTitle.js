@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import { Container, Wrap, PostHead, ShowMore } from "./postTitleStyles";
 import generated from "../../api/generated.json";
 
@@ -11,13 +12,16 @@ const PostTitle = () => {
           generated
             .filter((item, index) => index < 3)
             .map((item, index) => (
+              <>
               <PostHead key={item.id}>
                 {item.title}
-                <span>{item.name + " - " + item.createdAt.slice(0, 10)}</span>
               </PostHead>
+              <span>{item.name + " - " + item.createdAt.slice(0, 10)}</span>
+              </>
             ))}
-        <ShowMore>Show more...</ShowMore>
+        <Link to="/details"><ShowMore>Show more...</ShowMore></Link>
       </Wrap>
+      
     </Container>
   );
 };
