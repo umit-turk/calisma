@@ -95,9 +95,11 @@ export const Modal = styled.span`
     display: flex;
     z-index: 100;
     margin-left: 814px;
-    display: flex ;
+    display: grid;
     flex-direction: column;
-    display: none;
+
+    
+    
 
     
     

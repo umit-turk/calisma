@@ -1,11 +1,10 @@
 import React, {  useState } from "react";
-import genereted from "../../api/generated.json";
 import {PaginationUl} from "./paginationStyles";
 
 
 
-const Pagination = () => {
-
+const Pagination = ({generated}) => {
+console.log("this",generated)
     const pages = 5;
 
     const numOfPages = [];

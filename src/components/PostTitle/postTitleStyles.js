@@ -5,6 +5,7 @@ export const Container = styled.div`
    position:relative;
    display: flex;
    justify-content:center;
+   overflow: hidden;
 `
 export const Wrap = styled.div`
  position: absolute;
@@ -13,35 +14,48 @@ export const Wrap = styled.div`
     border: 1px solid #484848;
     border-radius: 4px;
     margin: 18px 439px 151px 292px;
-   
+    overflow: hidden;
+`
+export const Involve = styled.div`
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .line{
+    margin-top: 5px;
+}
+
 `
 export const PostHead = styled.div`
-    height: 31.42px;
-    padding: 0px 322px 13px 32px;
-    font-family: 'Roboto';
-    font-weight: 700;
-    color: #484848;
-    font-size: 18px;
-    line-height:21.09px;
-    vertical-align: top;
-    text-align: left;
-    margin-top: 18px;
-    padding-bottom: 45px;
-    
-
-    
-
-    span {
-        display: grid;
+display: flex;
+  width: 345px;
+  height: 31.42px;
+  font-family: 'Roboto';
+  font-weight:normal;
+  font-size: 18px;
+  font-style: normal;
+  line-height:21.09px;
+  color: #484848;
+  padding: 18px 332px 13px 32px;
+`
+export const Name = styled.div`
+        display: flex;
         width: 207px;
         font-size: 12px;
         height:26px;
         width: 644px;
         border-bottom: 1px solid #585858;
-        color:#686868;
+        margin-left: 32px;
         font-family: 'Roboto';
-    
-    }
+
+        span {
+            width: 207px;
+            height: 26px;
+            color:#686868;
+            padding: 10px 0px 5px 0px;
+
+            
+        }
 `
 export const ShowMore = styled.button`
     width:79px;

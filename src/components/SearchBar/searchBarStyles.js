@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
+flex-direction: column;
 `
 
 export const Wrap = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+   
 
     input {
         width: 709px;
@@ -53,3 +53,16 @@ export const Wrap = styled.div`
 
     }
 `
+/* export const PostHead = styled.div`
+    margin-top:80px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div{
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+` */

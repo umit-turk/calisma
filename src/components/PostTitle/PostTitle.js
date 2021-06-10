@@ -1,23 +1,29 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import { Container, Wrap, PostHead, ShowMore } from "./postTitleStyles";
+import { Container, Wrap, PostHead, Involve, ShowMore, Name } from "./postTitleStyles";
 import generated from "../../api/generated.json";
 
-const PostTitle = () => {
-  console.log(generated);
+
+console.log(generated)
+
+const PostTitle = ({search}) => {
+  
   return (
     <Container>
       <Wrap>
-        {generated &&
-          generated
-            .filter((item, index) => index < 3)
-            .map((item, index) => (
-              <>
+        {
+          generated.filter(item => item.title.toLowerCase().includes(search.toLowerCase())) 
+           
+          .map((item) => (
+              <Involve>
               <PostHead key={item.id}>
                 {item.title}
               </PostHead>
+              <Name>
               <span>{item.name + " - " + item.createdAt.slice(0, 10)}</span>
-              </>
+              </Name>
+              <div className="line"></div>
+                </Involve>
             ))}
         <Link to="/details"><ShowMore>Show more...</ShowMore></Link>
       </Wrap>

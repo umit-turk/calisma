@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   NewLogo,
   Container,
@@ -12,20 +12,27 @@ import {
   PostHead,
   Name,
   Involve,
-  Modal
+  Modal,
 } from "./detailStyles";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import generated from "../../api/generated.json";
 import Pagination from "../Pagination/Pagination";
 
 const Details = () => {
+  
+  const [show, setShow] = useState(false)
+
+  const handleClick = () => {
+    setShow(!show);
+  }
+
   return (
     <Container>
       <Wrap>
         <Link to="/">
-        <NewLogo>
-          <img src="/images/logo.svg" alt="logo" />
-        </NewLogo>
+          <NewLogo>
+            <img src="/images/logo.svg" alt="logo" />
+          </NewLogo>
         </Link>
         <SearchArea>
           <input placeholder="something" />
@@ -38,33 +45,31 @@ const Details = () => {
         <Icon>
           <img src="/images/icon.svg" alt="icon" />
         </Icon>
-        <Order>OrderBy</Order>
+        <Order onClick={handleClick}>OrderBy</Order>
       </Orders>
-      <Modal>
-          <ul>
-            <li>Name ascending</li>
-            <li>Name descending</li>
-            <li>Year ascending</li>
-            <li>Year descending</li>
-          </ul>
-      </Modal>
+      {show ? (<Modal >
+        <ul>
+          <li>Name ascending</li>
+          <li>Name descending</li>
+          <li>Year ascending</li>
+          <li>Year descending</li>
+        </ul>
+      </Modal>) : null}
       <BigDetails>
-      {generated &&
+        {generated &&
           generated
             .filter((item, index) => index < 7)
             .map((item, index) => (
-                <Involve>
-              <PostHead key={item.id}>
-                {item.title}
-              </PostHead>
-              <Name>
-              <span>{item.name + " - " + item.createdAt.slice(0, 10)}</span>
-              </Name>
-              <div className="line"></div>
-                </Involve>
+              <Involve>
+                <PostHead key={item.id}>{item.title}</PostHead>
+                <Name>
+                  <span>{item.name + " - " + item.createdAt.slice(0, 10)}</span>
+                </Name>
+                <div className="line"></div>
+              </Involve>
             ))}
       </BigDetails>
-      <Pagination />
+      <Pagination generated={generated}/>
     </Container>
   );
 };
