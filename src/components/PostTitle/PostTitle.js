@@ -7,6 +7,8 @@ import generated from "../../api/generated.json";
 
 
 const PostTitle = ({search, print}) => {
+
+ 
   
   return (
     <Container>
@@ -14,7 +16,7 @@ const PostTitle = ({search, print}) => {
         { 
            print &&
           generated.filter(item => item.title.toLowerCase().includes(search.toLowerCase())) 
-          .map((item) => (
+          .sort((a,b) => (a.title < b.title ? -1 : 1)).map((item) => (
               <Involve>
               <PostHead key={item.id}>
                 {item.title}
@@ -33,3 +35,4 @@ const PostTitle = ({search, print}) => {
 };
 
 export default PostTitle;
+

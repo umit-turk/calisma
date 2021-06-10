@@ -15,6 +15,7 @@ const App = () => {
  const getData = (event) => {
    setSearch(event.target.value)
    setPrint(false);
+   //setNewPrint(false);
     console.log(event.target.value)
   }
 

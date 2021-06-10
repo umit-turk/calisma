@@ -4,7 +4,7 @@ import {PaginationUl} from "./paginationStyles";
 
 
 const Pagination = ({generated}) => {
-console.log("this",generated)
+
     const pages = 5;
 
     const numOfPages = [];
