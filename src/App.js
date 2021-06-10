@@ -30,7 +30,7 @@ const App = () => {
         <PostTitle search={search} print={print} setPrint={setPrint}/>
       </Route>
       <Route path="/details">
-        <Details></Details>
+        <Details search={search} getData={getData} print={print} setPrint={setPrint}></Details>
       </Route>
     </div>
     </Router>

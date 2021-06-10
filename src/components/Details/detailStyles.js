@@ -140,7 +140,8 @@ export const Modal = styled.span`
 
 export const BigDetails = styled.div`
    
-
+height: 700px;
+overflow: hidden;
 `
 export const Involve = styled.div`
  margin: 0px 508px 35px 212px;
@@ -150,6 +151,7 @@ export const Involve = styled.div`
  flex-direction: column;
 cursor: pointer;
 transition: all 400ms;
+overflow: hidden;
 
 
 &:hover {

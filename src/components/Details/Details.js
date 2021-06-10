@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 import generated from "../../api/generated.json";
 import Pagination from "../Pagination/Pagination";
 
-const Details = () => {
+const Details = ({search, getData, setPrint, print}) => {
   
   const [show, setShow] = useState(false)
 
@@ -35,10 +35,13 @@ const Details = () => {
           </NewLogo>
         </Link>
         <SearchArea>
-          <input placeholder="something" />
+          <input
+          onChange={getData}
+          value={search}
+          placeholder="something" />
         </SearchArea>
         <Button>
-          <button>Search</button>
+          <button onClick={()=> setPrint(true)}>Search</button>
         </Button>
       </Wrap>
       <Orders>
@@ -56,10 +59,9 @@ const Details = () => {
         </ul>
       </Modal>) : null}
       <BigDetails>
-        {generated &&
-          generated
-            .filter((item, index) => index < 7)
-            .map((item, index) => (
+        {print &&
+          generated.filter(item => item.title.toLowerCase().includes(search.toLowerCase())) 
+          .map((item) => (
               <Involve>
                 <PostHead key={item.id}>{item.title}</PostHead>
                 <Name>
