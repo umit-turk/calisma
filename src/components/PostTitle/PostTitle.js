@@ -4,16 +4,16 @@ import { Container, Wrap, PostHead, Involve, ShowMore, Name } from "./postTitleS
 import generated from "../../api/generated.json";
 
 
-console.log(generated)
 
-const PostTitle = ({search}) => {
+
+const PostTitle = ({search, print}) => {
   
   return (
     <Container>
       <Wrap>
-        {
+        { 
+           print &&
           generated.filter(item => item.title.toLowerCase().includes(search.toLowerCase())) 
-           
           .map((item) => (
               <Involve>
               <PostHead key={item.id}>
@@ -23,8 +23,8 @@ const PostTitle = ({search}) => {
               <span>{item.name + " - " + item.createdAt.slice(0, 10)}</span>
               </Name>
               <div className="line"></div>
-                </Involve>
-            ))}
+                </Involve> 
+            )) }
         <Link to="/details"><ShowMore>Show more...</ShowMore></Link>
       </Wrap>
       

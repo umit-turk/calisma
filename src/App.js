@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import './App.css';
 import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -10,18 +10,24 @@ import PostTitle from './components/PostTitle/PostTitle';
 const App = () => {
 
   const [search, setSearch] = useState('');
+  const [print, setPrint] = useState(false);
+
+ const getData = (event) => {
+   setSearch(event.target.value)
+   setPrint(false);
+    console.log(event.target.value)
+  }
 
 
- const handleChange = (event) => setSearch(event.target.value);
-
+  
 
   return (
     <Router>
     <div className="App">
       <Route exact path="/">
         <Header />
-        <SearchBar search={search} onSearchChange={handleChange}/>
-        <PostTitle search={search} />
+        <SearchBar  search={search} getData={getData} print={print} setPrint={setPrint}/>
+        <PostTitle search={search} print={print} setPrint={setPrint}/>
       </Route>
       <Route path="/details">
         <Details></Details>
